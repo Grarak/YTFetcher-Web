@@ -1,12 +1,17 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {enableProdMode} from '@angular/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import {AppModule} from './app/app.module';
+import {environment} from './environments/environment';
+
+import 'hammerjs';
+import ogv from 'ogv';
 
 if (environment.production) {
   enableProdMode();
 }
+
+ogv.OGVLoader.base = '/ogv';
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
