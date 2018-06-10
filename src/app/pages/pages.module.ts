@@ -9,7 +9,6 @@ import {
   MatProgressSpinnerModule, MatTableModule, MatSlideToggleModule, MatDialogModule,
   MatMenuModule
 } from '@angular/material';
-import {DeviceDetectorModule} from 'ngx-device-detector';
 
 import {ViewsModule} from '../views/views.module';
 
@@ -50,8 +49,7 @@ import { SettingsComponent } from './settings.component';
     MatDialogModule, MatMenuModule,
     FormsModule,
     CommonModule,
-    ViewsModule,
-    DeviceDetectorModule.forRoot()
+    ViewsModule
   ],
   declarations: [
     LoginComponent,

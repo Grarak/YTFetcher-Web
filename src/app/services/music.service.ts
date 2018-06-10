@@ -58,7 +58,6 @@ export class MusicService {
     }
 
     this.pause();
-    this.ogvPlayer.currentTime = 0;
     this.state = MusicService.FETCHING;
     this.currentTracks = youtube;
     this.currentTrackPosition = position;
@@ -126,7 +125,7 @@ export class MusicService {
   }
 
   next() {
-    if (this.currentTrackPosition < this.currentTracks.length) {
+    if (this.currentTrackPosition < this.currentTracks.length - 1) {
       this.playQueue(this.currentTracks, this.currentTrackPosition + 1);
     }
   }

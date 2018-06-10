@@ -4,7 +4,6 @@ import {User} from '../entities/user';
 import {Observable} from 'rxjs';
 import {Status} from '../entities/status';
 import {Router} from '@angular/router';
-import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
   selector: 'app-page-login',
@@ -60,8 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   serverSubscription: any;
 
-  constructor(private server: ServerService, private router: Router,
-              private deviceService: DeviceDetectorService) {
+  constructor(private server: ServerService, private router: Router) {
   }
 
   onSubmit() {
