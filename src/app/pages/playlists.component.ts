@@ -40,7 +40,7 @@ import {Router} from '@angular/router';
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       <div style="height: 80px"></div>
-      <button mat-fab color="accent" style="position: fixed; right: 16px; bottom: 90px" (click)="addPlaylist()">
+      <button mat-fab color="accent" style="position: fixed; right: 32px; bottom: 90px" (click)="addPlaylist()">
         <mat-icon>add</mat-icon>
       </button>
     </div>

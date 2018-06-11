@@ -39,6 +39,13 @@ export class MusicService {
 
   constructor(private server: ServerService) {
     this.ogvPlayer = new ogv.OGVPlayer();
+    this.ogvPlayer.addEventListener('loadedmetadata', () => {
+      this.resume();
+    });
+    this.ogvPlayer.addEventListener('ended', () => {
+      this.pause();
+      this.next();
+    });
   }
 
   play(youtube: Youtube) {
@@ -66,13 +73,6 @@ export class MusicService {
     this.subscription = this.server.youtube.fetch(youtube[position])
       .subscribe((response: Response<string>) => {
         if (response.status === 0) {
-          this.ogvPlayer.addEventListener('loadedmetadata', () => {
-            this.resume();
-          });
-          this.ogvPlayer.addEventListener('ended', () => {
-            this.pause();
-            this.next();
-          });
           this.ogvPlayer.src = response.body;
           this.ogvPlayer.load();
         } else {

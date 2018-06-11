@@ -33,7 +33,7 @@ import {MusicService} from '../services/music.service';
         [diameter]="50"></mat-progress-spinner>
     </div>
     <div style="height: 80px"></div>
-    <div style="position: fixed; right: 16px; bottom: 90px"
+    <div style="position: fixed; right: 32px; bottom: 90px"
          [style.display]="ids.length > 0 && !showLoading">
       <button mat-fab style="margin-right: 16px" color="accent" (click)="onShuffle()">
         <mat-icon>shuffle</mat-icon>
@@ -101,7 +101,9 @@ export class PlaylistIdsComponent implements OnInit, OnDestroy {
 
     this.subscription = zip(...observables).subscribe((response: Response<Youtube>[]) => {
       for (const id of response) {
-        fetchedIds.push(id.body);
+        if (id.body != null) {
+          fetchedIds.push(id.body);
+        }
       }
       this.getInfo(ids, position + requests, fetchedIds);
     });

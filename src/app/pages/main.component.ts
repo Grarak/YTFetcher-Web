@@ -7,7 +7,7 @@ import {ServerService} from '../services/server.service';
   selector: 'app-main',
   template: `
     <div class="example-container">
-      <mat-toolbar color="primary" class="example-toolbar">
+      <mat-toolbar color="primary">
         <button mat-icon-button
                 (click)="snav.toggle()"
                 style="margin-right: 16px"
@@ -32,7 +32,7 @@ import {ServerService} from '../services/server.service';
                      [mode]="mobileQuery.matches ? 'over' : 'side'"
                      [style.width]="mobileQuery.matches ? '70%' : '20%'"
                      [fixedInViewport]="mobileQuery.matches">
-          <mat-nav-list>
+          <mat-nav-list style="margin-top: 60px">
             <a mat-list-item
                [routerLink]="'/main' + item.path"
                *ngFor="let item of navItems"
