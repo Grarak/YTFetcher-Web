@@ -34,7 +34,7 @@ import {MusicService} from '../services/music.service';
     </div>
     <div style="height: 80px"></div>
     <div style="position: fixed; right: 32px; bottom: 90px"
-         [style.display]="ids.length > 0 && !showLoading">
+         *ngIf="ids.length > 0 && !showLoading">
       <button mat-fab style="margin-right: 16px" color="accent" (click)="onShuffle()">
         <mat-icon>shuffle</mat-icon>
       </button>
