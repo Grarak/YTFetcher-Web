@@ -3,6 +3,7 @@ import {ServerService, Response} from './server.service';
 import {Youtube} from '../entities/youtube';
 import ogv from 'ogv';
 import {interval} from 'rxjs';
+import {Title} from '@angular/platform-browser';
 
 export interface MusicListener {
   onFetch?: (tracks: Youtube[], position: number) => void;
@@ -37,7 +38,7 @@ export class MusicService {
 
   listeners: MusicListener[] = [];
 
-  constructor(private server: ServerService) {
+  constructor(private server: ServerService, private title: Title) {
     this.ogvPlayer = new ogv.OGVPlayer();
     this.ogvPlayer.addEventListener('loadedmetadata', () => {
       this.resume();
@@ -94,6 +95,8 @@ export class MusicService {
     this.state = MusicService.PLAYING;
     this.ogvPlayer.play();
     this.notifyPlay(this.currentTracks, this.currentTrackPosition);
+
+    this.title.setTitle(this.currentTracks[this.currentTrackPosition].title);
   }
 
   pause() {
