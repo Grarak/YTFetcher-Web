@@ -8,7 +8,7 @@ import {MatDialog} from '@angular/material';
 @Component({
   selector: 'app-home',
   template: `
-    <mat-grid-list [cols]="columns" rowHeight="300px">
+    <mat-grid-list [cols]="columns" rowHeight="300px" [style.display]="charts.length == 0 ? 'none' : 'block'">
       <mat-grid-tile style="width: 100%" *ngFor="let youtube of charts">
         <app-view-music-grid style="width: 100%; height: 100%"
                              [youtube]="youtube"
@@ -16,11 +16,13 @@ import {MatDialog} from '@angular/material';
                              (addPlaylist)="addPlaylist(youtube)"></app-view-music-grid>
       </mat-grid-tile>
     </mat-grid-list>
-    <mat-progress-spinner
-      [style.visibility]="charts.length == 0 ? 'visible' : 'hidden'"
-      mode="indeterminate"
-      style="left: 50%; position: absolute"
-      [diameter]="50"></mat-progress-spinner>
+    <div style="position: absolute; width: 100%; height: 100%;
+    justify-content: center; align-items: center;"
+         [style.display]="charts.length === 0 ? 'flex' : 'none'">
+      <mat-progress-spinner
+        mode="indeterminate"
+        [diameter]="50"></mat-progress-spinner>
+    </div>
   `
 })
 export class HomeComponent implements OnInit, OnDestroy {

@@ -42,7 +42,8 @@ export class YoutubeServer {
     return new Observable<Response<string>>(subscriber => {
       this.server.post<string>('youtube/fetch', {
         apikey: this.server.apiKey,
-        id: youtube.id
+        id: youtube.id,
+        addhistory: true
       }, 'text')
         .forEach((urlResponse: HttpResponse<string>) => {
           const ytfetcherId = urlResponse.headers.get('ytfetcher-id');
