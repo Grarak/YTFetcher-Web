@@ -23,7 +23,7 @@ import {MatDialog} from '@angular/material';
                 [style.font-size]="mobileQuery.matches ? '4vw' : ''">{{current.title}}</span>
         </div>
         <div>
-          <img style="float: right" [src]="current.thumbnail" align="middle"/>
+          <img style="float: right; object-fit: cover; height: 100%; width: 100px" [src]="current.thumbnail" align="middle"/>
         </div>
       </div>
 

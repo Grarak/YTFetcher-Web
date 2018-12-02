@@ -6,8 +6,8 @@ import {Youtube} from '../entities/youtube';
   template: `
     <mat-card style="padding: 0; margin-left: 16px; margin-right: 16px; height: 120px">
       <div style="height: 100%; display: flex">
-        <div style="width: 160px" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
-          <img #image style="height: 100%;" [src]="youtube.thumbnail">
+        <div style="width: 200px" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+          <img #image style="height: 100%;width: inherit; object-fit: cover;" [src]="youtube.thumbnail">
 
           <div style="background-color: black; opacity: .5;
           position: absolute; top: 0; height: 100%; width: inherit;
